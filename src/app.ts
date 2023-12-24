@@ -96,9 +96,100 @@ function calc(a: number, b: number, type: CalcType): number {
     }
 }
 
-const a = 10;
-const b = 2;
-console.log('Add', calc(a, b, CalcType.Add))      // Add 12
-console.log('Sub', calc(a, b, CalcType.Sub))      // Sub 8
-console.log('Multi', calc(a, b, CalcType.Mul))  // Multi 20
-console.log('Div', calc(a, b, CalcType.Div))      // Div 5
+// const a = 10;
+// const b = 2;
+// console.log('Add', calc(a, b, CalcType.Add))      // Add 12
+// console.log('Sub', calc(a, b, CalcType.Sub))      // Sub 8
+// console.log('Multi', calc(a, b, CalcType.Mul))  // Multi 20
+// console.log('Div', calc(a, b, CalcType.Div))      // Div 5
+
+/**
+ *  配列を任意の倍数にする
+ *  @param {number[]} nums 対象データ配列
+ *  @param {number} multiple 倍数
+ *  @return {number[]} 出力結果 multipleの値で掛けたnumsの結果
+ */
+function multiple(nums: number[], multiple: number): number[]{
+    return nums.map((num) => num * multiple)
+}
+//console.log('multiple', multiple([10, 2, 4, 1], 3)) // multiple [ 30, 6, 12, 3 ]
+
+/**
+ *  * を描画する
+ *  @param {number} size *の最大個数
+ *  @param {boolean} isReverse true:*が多い順に表示, false：*が少ない順に表示
+ *  @return {void}
+ */
+function drawAsterisk1(size: number, isReverse: boolean) {
+    let result: string = ''
+    /**
+     * for文とif文を使ってresultに*を連結して作成してください。
+     */
+    if (isReverse) {
+        result = '*'.repeat(size+1)
+    } 
+    for (let i = 0; i < size; i++) {
+        if (isReverse) {
+            result = result.slice(0, -1)
+        } else {
+            result += '*'
+        }
+        console.log(result)
+    }
+}
+
+//drawAsterisk1(5, true)
+//drawAsterisk1(5, false)
+
+/**
+ *  * を描画する
+ *  @param {number} size *の最大個数
+ *  @param {boolean} isReverse true:*が多い順に表示, false：*が少ない順に表示
+ *  @return {void}
+ */
+function drawAsterisk2(size: number, isReverse: boolean) {
+    let result: string = ''
+    let star: string = ''
+    /**
+     * for文とif文を使ってresultに*を連結して作成してください。
+     */
+    if (isReverse) {
+        star = '*'.repeat(size+1)
+    }
+    for (let i = 0; i < size; i++) {
+        if (isReverse) {
+            star = star.slice(0, -1)
+            result = ' '.repeat(i) + star
+        } else {
+            result = ' '.repeat(size-i-1) + '*'.repeat(i+1)
+        }
+        console.log(result)
+    }
+  }
+
+//drawAsterisk2(5, true)
+//drawAsterisk2 (5, false)
+
+/**
+ *  * を描画する
+ *  @param {number} size *の個数
+ *  @param {boolean} isReverse true:*が多い順に表示, false：*が少ない順に表示
+ *  @return {void}
+ */
+function drawAsterisk3(size: number, isReverse: boolean) {
+    let result: string = ''
+    /**
+     * for文とif文を使ってresultに*を連結して作成してください。
+     */
+    for (let i = 0; i < size; i++) {
+        if (isReverse) {
+            result = ' '.repeat(i) + '*'
+        } else {
+            result = ' '.repeat(size-i-1) + '*'
+        }
+        console.log(result)
+    }
+  }
+
+//drawAsterisk3(5, true)
+//drawAsterisk3 (5, false)
