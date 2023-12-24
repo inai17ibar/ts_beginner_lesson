@@ -193,3 +193,55 @@ function drawAsterisk3(size: number, isReverse: boolean) {
 
 //drawAsterisk3(5, true)
 //drawAsterisk3 (5, false)
+
+/**
+ *  テキストから任意のワードを検索する
+ *  @param {string} text 検索対象のテキスト
+ *  @param {string} searchWord 検索するワード
+ *  @return {boolean} 出力結果 true:存在する false:存在しない
+ */
+function isSearchText(text: string, searchWord: string): boolean
+{
+    return text.includes(searchWord)
+}
+
+// let sentence1: string = 'TypeScript はマイクロソフトによって開発され、メンテナンスされているフリーでオープンソースのプログラミング言語である。TypeScriptはJavaScriptに対して、省略も可能な静的型付けとクラスベースオブジェクト指向を加えた厳密なスーパーセットとなっている。C# のリードアーキテクトであり、DelphiとTurbo Pascalの開発者でもあるアンダース・ヘルスバーグが TypeScript の開発に関わっている。TypeScriptはクライアントサイド、あるいはサーバサイド (Node.js) で実行されるJavaScriptアプリケーションの開発に利用できる。'
+// console.log(isSearchText(sentence1, 'TypeScript'))   // true
+// console.log(isSearchText(sentence1, 'メンテナンス'))   // true
+// console.log(isSearchText(sentence1, 'shohei'))       // false
+
+/**
+ *  テキストから任意のワードを検索する
+ *  @param {string} text 検索対象のテキスト
+ *  @param {string} searchWord 検索するワード
+ *  @return {number} 出力結果 検索ヒットした回数
+ */
+function searchText(text: string, searchWord: string): number
+{
+    return text.split(searchWord).length - 1
+}
+
+// let sentence2 = "TypeScript はマイクロソフトによって開発され、メンテナンスされているフリーでオープンソースのプログラミング言語である。TypeScriptはJavaScriptに対して、省略も可能な静的型付けとクラスベースオブジェクト指向を加えた厳密なスーパーセットとなっている。C# のリードアーキテクトであり、DelphiとTurbo Pascalの開発者でもあるアンダース・ヘルスバーグが TypeScript の開発に関わっている。TypeScriptはクライアントサイド、あるいはサーバサイド (Node.js) で実行されるJavaScriptアプリケーションの開発に利用できる。"
+// console.log(searchText(sentence2, 'TypeScript'))    // 4
+// console.log(searchText(sentence2, 'プログラミング'))  // 1
+// console.log(searchText(sentence2, 'shohei'))        // 0
+
+/**
+ *  配列のソート（挿入ソート）
+ *  @param {number[]} nums ソート対象の値配列
+ *  @param {boolean} isDesc 降順でのソートフラグ true:降順 false:昇順
+ *  @return {number[]} 出力結果
+ */
+function sort(nums: number[], isDesc: boolean): number[]
+{
+    if (isDesc) {
+        return nums.sort((a, b) => b - a)
+    } else {
+        return nums.sort((a, b) => a - b)
+    }
+}
+
+console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], true))   // [ 8, 7, 6, 5, 4, 3, 2, 1 ]
+console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], false))  // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], true))   // [ 800, 700, 60, 30, 10, 10, 5, 4, 1 ]
+console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], false))  // [ 1, 4, 5, 10, 10, 30, 60, 700, 800 ]
