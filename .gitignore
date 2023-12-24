@@ -1,0 +1,24 @@
+# ビルド結果
+/dist
+/build
+
+# デバッグファイル
+.nyc_output
+/coverage
+
+# ローカルのnpmモジュール
+/node_modules
+
+# IDE - VSCode
+.vscode
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
