@@ -1,5 +1,3 @@
-console.log(mergeString('俺は', '明日', '勉強する')) // 俺は明日勉強する
-
 /**
  *  「こんにちは」を取得する
  *  @return {string} 文字列
@@ -66,3 +64,41 @@ function mergeString(str1: string, str2: string, str3: string): string
 {
     return str1 + str2 + str3
 }
+
+enum CalcType {
+    Add = "Add",
+    Sub = "Sub",
+    Mul = "Mul",
+    Div = "Div"
+}
+/**
+ *  二つの値の足し算、引き残、掛け算、割り算の計算
+ *  @param {number} a 値
+ *  @param {number} b 値
+ *  @param {CalcType} type 計算種別（enumで定義してください。）
+ *  @return {number} 出力結果
+ */
+function calc(a: number, b: number, type: CalcType): number {
+    switch (type) {
+        case CalcType.Add:
+            return a + b;
+        case CalcType.Sub:
+            return a - b;
+        case CalcType.Mul:
+            return a * b;
+        case CalcType.Div:
+            if (b === 0) {
+                throw new Error("Division by zero is not allowed.");
+            }
+            return a / b;
+        default:
+            throw new Error(`Unknown calculation type: ${type}`);
+    }
+}
+
+const a = 10;
+const b = 2;
+console.log('Add', calc(a, b, CalcType.Add))      // Add 12
+console.log('Sub', calc(a, b, CalcType.Sub))      // Sub 8
+console.log('Multi', calc(a, b, CalcType.Mul))  // Multi 20
+console.log('Div', calc(a, b, CalcType.Div))      // Div 5
