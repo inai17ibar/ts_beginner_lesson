@@ -263,4 +263,44 @@ function countDownTimer(maxTime: number)
     }, 1000);
 }
 
-countDownTimer(5)
+// countDownTimer(5)
+
+/**
+ *  key: valueの形式でデータを取得する
+ *  @return {any} key: valueの形式
+ */
+function getKeyValues(id: string, value: string): any
+{
+    return {id, value}
+}
+
+//console.log(getKeyValues('0', 'shohei')) // { id: '0', value: 'shohei' }
+
+/**
+ *  key: valueのデータでnull以外のデータに正規化する
+ *  @param {any} データ
+ *  @return {any} 正規化した結果
+ */
+function normKeyValues(data: any): any
+{
+    return Object.fromEntries(
+        Object.entries(data).filter(([_, v]) => v != null)
+    )
+}
+
+const inputKeyValues1 = {
+    id: '100',
+    name: 'shohei',
+    age: null,
+    birthday: '1988/10/07',
+    hobby: null,
+  }
+  const inputKeyValues2 = {
+    tamago: null,
+    ringo: 'apple',
+    doraemon: null,
+    banana: null,
+    gohan: null,
+  }
+  //console.log(normKeyValues(inputKeyValues1)) // { id: '100', name: 'shohei', birthday: '1988/10/07' }
+  //console.log(normKeyValues(inputKeyValues2)) // { ringo: 'apple' }
