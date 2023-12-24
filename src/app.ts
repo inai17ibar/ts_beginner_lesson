@@ -241,7 +241,26 @@ function sort(nums: number[], isDesc: boolean): number[]
     }
 }
 
-console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], true))   // [ 8, 7, 6, 5, 4, 3, 2, 1 ]
-console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], false))  // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
-console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], true))   // [ 800, 700, 60, 30, 10, 10, 5, 4, 1 ]
-console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], false))  // [ 1, 4, 5, 10, 10, 30, 60, 700, 800 ]
+// console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], true))   // [ 8, 7, 6, 5, 4, 3, 2, 1 ]
+// console.log(sort([8, 4, 3, 7, 6, 5, 2, 1], false))  // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+// console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], true))   // [ 800, 700, 60, 30, 10, 10, 5, 4, 1 ]
+// console.log(sort([800, 4, 30, 700, 60, 5, 10, 1, 10], false))  // [ 1, 4, 5, 10, 10, 30, 60, 700, 800 ]
+
+/**
+ *  カウントダウンする
+ *  @param {number} maxTime 
+ *  @return {void}
+ */
+function countDownTimer(maxTime: number)
+{
+    let timer = setInterval(() => {
+        if(maxTime < 0) {
+            clearInterval(timer);
+        } else {
+            console.log(maxTime);
+            maxTime--;
+        }
+    }, 1000);
+}
+
+countDownTimer(5)
